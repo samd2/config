@@ -30,7 +30,11 @@ cp -r $TRAVIS_BUILD_DIR/* libs/config
 ./bootstrap.sh
 ./b2 headers
 
-echo '==================================> COMPILE'
+echo '==================================> BEFORE_SCRIPT'
+
+. $DRONE_CURRENT_BUILD_DIR/.drone/before-script.sh
+
+echo '==================================> SCRIPT'
 
 if [ $TEST_INTEL ]; then source ~/.bashrc; fi
 echo "using $TOOLSET : : $COMPILER : <cxxflags>$EXTRA_FLAGS <linkflags>$EXTRA_FLAGS ;" > ~/user-config.jam
@@ -39,5 +43,4 @@ echo "using $TOOLSET : : $COMPILER : <cxxflags>$EXTRA_FLAGS <linkflags>$EXTRA_FL
 
 echo '==================================> AFTER_SUCCESS'
 
-cd $DRONE_CURRENT_BUILD_DIR
-. .drone/after-success.sh
+. $DRONE_CURRENT_BUILD_DIR/.drone/after-success.sh
