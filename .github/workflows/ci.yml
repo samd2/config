@@ -575,7 +575,7 @@ jobs:
 
       - name: Set DEVELOPER_DIR
         if: matrix.xcode_version != ''
-        run: echo "::set-env name=DEVELOPER_DIR:/Applications/Xcode-:${{ matrix.xcode_version }}.app/Contents/Developer"
+        run: echo "::set-env name=DEVELOPER_DIR:/Applications/Xcode_${{ matrix.xcode_version }}.app/Contents/Developer"
       - name: Test DEVELOPER_DIR
         run: echo $DEVELOPER_DIR
       - name: boost
