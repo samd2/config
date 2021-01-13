@@ -454,7 +454,7 @@ jobs:
             sources: ""
             llvm_os: ""
             llvm_ver: ""
-            xcode_version: "10.2"
+            xcode_version: "10.3"
             toolset: "clang"
             compiler: "clang++"
             cxxstd: "03,11,14,17,2a"
