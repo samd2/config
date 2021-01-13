@@ -600,6 +600,8 @@ jobs:
           echo '==================================> SETUP'
           set -ex
           uname -a
+          whoami
+          sudo mv /Library/Developer/CommandLineTools /Library/Developer/CommandLineTools.bck
           BOOST_CI_ORG=boostorg BOOST_CI_BRANCH=master && /usr/local/bin/wget https://github.com/$BOOST_CI_ORG/boost-ci/archive/$BOOST_CI_BRANCH.tar.gz && tar -xvf $BOOST_CI_BRANCH.tar.gz && mkdir -p .github &&  mv boost-ci-$BOOST_CI_BRANCH .github/boost-ci
           echo '==================================> PACKAGES'
           ./.github/boost-ci/ci/drone/osx-cxx-install.sh
